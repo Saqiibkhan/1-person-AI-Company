@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  ONEPERSON AI design system -- warm professional SaaS palette
+  (warm off-white background, white surfaces, deep navy text,
+  restrained teal accent, subtle gray borders). This replaces the
+  earlier dark-first palette as the default theme; the previous
+  dark palette is kept under :root.dark in case a theme toggle is
+  added later, but nothing in the app currently switches it on.
+*/
+:root:not(.dark) {
+  --background: 60 9% 96%;         /* #F7F7F5 warm off-white */
+  --foreground: 221 38% 15%;       /* #172033 deep navy */
+  --card: 0 0% 100%;                /* #FFFFFF */
+  --card-foreground: 221 38% 15%;  /* #172033 */
+  --border: 218 17% 91%;           /* #E4E7EC */
+  --muted: 80 9% 94%;              /* #F0F1EE secondary surface */
+  --muted-foreground: 221 13% 46%; /* #667085 secondary text */
+  --subtle-foreground: 218 15% 65%; /* #98A2B3 muted/tertiary text */
+  --accent: 175 77% 26%;           /* #0F766E teal */
+  --accent-hover: 176 69% 22%;     /* #115E59 */
+  --accent-light: 167 85% 89%;     /* #CCFBF1 */
+  --accent-foreground: 0 0% 100%;
+  --success: 142 71% 29%;          /* #16803C */
+  --warning: 36 71% 42%;           /* #B7791F */
+  --danger: 3 53% 50%;             /* #C2413B */
+  --info: 221 83% 53%;             /* #2563EB */
+}
+
+/* Previous dark theme, preserved for a future theme toggle -- not
+   active by default (index.html no longer sets class="dark"). */
+:root.dark {
+  --background: 222 20% 8%;
+  --foreground: 210 20% 92%;
+  --card: 222 18% 11%;
+  --card-foreground: 210 20% 92%;
+  --border: 222 14% 20%;
+  --muted: 222 14% 16%;
+  --muted-foreground: 215 12% 60%;
+  --subtle-foreground: 215 10% 45%;
+  --accent: 175 60% 45%;
+  --accent-hover: 175 65% 38%;
+  --accent-light: 175 30% 20%;
+  --accent-foreground: 0 0% 100%;
+  --success: 142 71% 45%;
+  --warning: 38 92% 50%;
+  --danger: 0 72% 51%;
+  --info: 217 91% 60%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 4px;
+}

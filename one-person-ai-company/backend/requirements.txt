@@ -1,0 +1,36 @@
+# --- Web framework ---
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+python-dotenv==1.0.1
+websockets==13.1
+
+# --- Database ---
+sqlalchemy==2.0.35
+psycopg2-binary==2.9.9
+
+# --- Agents / LLM orchestration ---
+# crewai is installed separately with --no-deps (see README notes / install
+# script). Its declared dependency tree pulls embedchain -> chromadb ->
+# google-cloud-aiplatform, which this app never imports and which makes the
+# pip resolver backtrack for many minutes before failing on a mirror that
+# lacks some of those versions. Only crewai's core is used: Agent, Task,
+# Crew, Process, LLM, and crewai.tools.tool.
+pydantic==2.9.2
+requests==2.32.3
+
+# --- crewai runtime deps (the subset actually reachable from crewai's core
+# imports; the memory/vector deps are omitted on purpose) ---
+litellm==1.55.12
+instructor==1.3.3
+json-repair>=0.25.2,<0.26.0
+opentelemetry-api>=1.22.0,<2.0.0
+opentelemetry-sdk>=1.22.0,<2.0.0
+opentelemetry-exporter-otlp-proto-http>=1.22.0,<2.0.0
+auth0-python>=4.7.1,<5.0.0
+pyjwt>=2.8.0
+docstring-parser>=0.16,<0.17
+chromadb==0.4.24
+
+# --- Testing ---
+pytest==8.3.3
+httpx==0.27.2
